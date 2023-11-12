@@ -50,7 +50,7 @@ def save_to_csv(stats_with_name, filename='ufc_fight_night_test.csv'):
     except FileNotFoundError:
         df = pd.DataFrame()
 
-    df = df.append(stats_with_name, ignore_index=True)
+    df = df._append(stats_with_name, ignore_index=True)
     df.to_csv(filename, index=False)
 
 def get_fighter_urls(event_url):
@@ -63,7 +63,7 @@ def get_fighter_urls(event_url):
         fighter_urls = []
 
         if table:
-            rows = table.find_all('tr')[1:11]
+            rows = table.find_all('tr')[1:]
             for row in rows:
                 fighters = row.find_all('td')[1:3]
                 for fighter in fighters:
@@ -138,13 +138,13 @@ root.configure(bg="#C5000C")  # Set background color
 
 # Logo
 logo_path = "path_to_your_logo.png"  # Replace with the path to your logo
-if os.path.exists(logo_path):
-    logo_image = Image.open(logo_path)
-    logo_image = logo_image.resize((400, 250), Image.ANTIALIAS)
-    logo_image = ImageTk.PhotoImage(logo_image)
-    logo_label = Label(root, image=logo_image, bg="#C5000C")
-    logo_label.image = logo_image  # To prevent garbage collection
-    logo_label.pack()
+# if os.path.exists(logo_path):
+#     logo_image = Image.open(logo_path)
+#     logo_image = logo_image.resize((400, 250), Image.ANTIALIAS)
+#     logo_image = ImageTk.PhotoImage(logo_image)
+#     logo_label = Label(root, image=logo_image, bg="#C5000C")
+#     logo_label.image = logo_image  # To prevent garbage collection
+#     logo_label.pack()
 
 label = Label(root, text="Enter UFC Event URL:", bg="#C5000C", fg="white", font=("Helvetica", 16))
 label.pack()
