@@ -25,8 +25,21 @@ pip install tkinter
 
 pip install os
 
+## to Run
+
+Go into folder directory in terminal via cd
+
+then input :
+
+python3 TheFightCalculator.py
+
+
+
 Improvements to this are always welcome!
 
+Cheers,
+
+Keef
 
 
 
