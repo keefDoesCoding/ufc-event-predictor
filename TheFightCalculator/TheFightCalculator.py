@@ -79,6 +79,9 @@ def get_fighter_urls(event_url):
         return None
 
 def on_submit():
+    result_text.config(state=tk.NORMAL)  # Set state to NORMAL to allow modifications
+    result_text.delete(1.0, tk.END)  # Clear existing content
+    
     fighter_urls = get_fighter_urls(url_var.get())
     career_stats_list = [scrape_career_statistics(url) for url in fighter_urls if scrape_career_statistics(url) is not None]
 
